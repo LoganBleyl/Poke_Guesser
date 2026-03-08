@@ -1,4 +1,5 @@
 import requests
+import os
 
 BASE_URL = "https://pokeapi.co/api/v2/"
 
@@ -8,15 +9,24 @@ def get_pokemon(identifier):
         response = requests.get(url, timeout=10)
         response.raise_for_status()
         return response.json()
+
     except requests.exceptions.RequestException as e:
         print(f"Error fetching data for {identifier}: {e}")
         return None
 
-def download_sprite(sprite_url):
+def download_sprite(url, save_path):
+    if os.path.exists(save_path):
+        return True
+
     try:
-        response = requests.get(sprite_url, timeout=10)
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        response = requests.get(url, timeout=10, stream=True)
         response.raise_for_status()
-        return response.content
+        with open(save_path, "wb") as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                f.write(chunk)
+        return True
+
     except requests.exceptions.RequestException as e:
         print(f"Error downloading sprite: {e}")
-        return None
+        return False
