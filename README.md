@@ -32,16 +32,39 @@ Built as a first mid-level Python project to practise:
    - ❌ Wrong — try again. The input box clears automatically.
 4. **Press Space** at any time to reveal the answer and skip to the next Pokémon (no point awarded).
 
+> ⚠️ Requires an internet connection to fetch Pokémon data.
+
 ---
 
 ## Getting Started
 
-### Prerequisites
+### Option 1 — Download the Executable (No Python Required)
 
-- Python 3.10 or higher
-- pip
+Head to the [Releases](https://github.com/LoganBleyl/Poke_Guesser/releases/latest) page and download the executable for your platform:
 
-### Installation
+| Platform | File |
+|----------|------|
+| 🐧 Linux | `pokeguesser` |
+| 🪟 Windows | `pokeguesser.exe` |
+| 🍎 Mac | `pokeguesser` |
+
+**Linux / Mac:**
+```bash
+chmod +x pokeguesser   # make it executable (first time only)
+./pokeguesser
+```
+
+**Windows:**
+
+Double-click `pokeguesser.exe` to launch.
+
+> **Note:** On Mac you may see a security warning on first launch. Go to System Preferences → Security & Privacy and click **Open Anyway**.
+
+---
+
+### Option 2 — Run from Source
+
+**Prerequisites:** Python 3.10 or higher and pip.
 
 ```bash
 # Clone the repository
@@ -55,11 +78,8 @@ venv\Scripts\activate           # Windows
 
 # Install dependencies
 pip install pygame requests pillow
-```
 
-### Run the game
-
-```bash
+# Run the game
 python main.py
 ```
 
@@ -78,7 +98,6 @@ python main.py
 ---
 
 *First 898 Pokémon supported (Generations 1–8).*
-
 
 <p align="left">
   <img src="https://api.boot.dev/v1/users/public/cfb73ef3-6d19-4ef2-9943-ba908bedaaf6/thumbnail" >
