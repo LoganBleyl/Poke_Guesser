@@ -1,0 +1,66 @@
+name: Build Pokéguesser Executables
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pygame requests pillow pyinstaller
+
+      - name: Build executable (Linux/Mac)
+        if: runner.os != 'Windows'
+        run: |
+          pyinstaller --onefile \
+            --exclude-module numpy \
+            --exclude-module scipy \
+            --exclude-module matplotlib \
+            --name pokeguesser \
+            main.py
+
+      - name: Build executable (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          pyinstaller --onefile --noconsole `
+            --exclude-module numpy `
+            --exclude-module scipy `
+            --exclude-module matplotlib `
+            --name pokeguesser `
+            main.py
+
+      - name: Upload to Release (Linux)
+        if: runner.os == 'Linux'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/pokeguesser
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload to Release (Mac)
+        if: runner.os == 'macOS'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/pokeguesser
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload to Release (Windows)
+        if: runner.os == 'Windows'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/pokeguesser.exe
+          token: ${{ secrets.GITHUB_TOKEN }}
