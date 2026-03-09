@@ -78,3 +78,8 @@ python main.py
 ---
 
 *First 898 Pokémon supported (Generations 1–8).*
+
+
+<p align="left">
+  <img src="https://api.boot.dev/v1/users/public/cfb73ef3-6d19-4ef2-9943-ba908bedaaf6/thumbnail" >
+</p>
