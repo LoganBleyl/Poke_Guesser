@@ -45,8 +45,8 @@ Built as a first mid-level Python project to practise:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/pokeguesser.git
-cd pokeguesser
+git clone https://github.com/LoganBleyl/Poke_Guesser
+cd Poke_Guesser
 
 # Create and activate a virtual environment
 python -m venv venv
