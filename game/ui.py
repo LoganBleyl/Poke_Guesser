@@ -12,13 +12,13 @@ class UI:
     def draw(self, state):
         self.screen.fill((255,165,0))
         text = self.font_xl.render("Who's that pokemon?", True, (255, 255, 255))
-        rect = text.get_rect(centerx=300, top=20)
+        rect = text.get_rect(centerx=400, top=120)
         self.screen.blit(text, rect)
         
     
         if state["is_loading"]:
             text = self.font_large.render("Loading...", True, (255, 255, 255))
-            rect = text.get_rect(centerx=780, top=300)
+            rect = text.get_rect(centerx=400, top=300)
             self.screen.blit(text, rect)
             pygame.display.flip()
             return
@@ -37,7 +37,7 @@ class UI:
         self.screen.blit(state["sprite"], rect)
         #loading the score
         surf = self.font_large.render(f"Score: {state['score']}", True, (255, 255, 255))
-        rect = surf.get_rect(centerx=280, top=50)
+        rect = surf.get_rect(centerx=400, top=150)
         #loading the input text & box
         self.screen.blit(surf, rect)
         box_rect = pygame.Rect(200, 490, 400, 44)
