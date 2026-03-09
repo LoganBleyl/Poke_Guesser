@@ -8,3 +8,5 @@ wheels/
 
 # Virtual environments
 .venv
+cache/downloaded_sprites/
+venv/

@@ -42,16 +42,16 @@ class GameManager:
             self.feedback_message = "Wrong!"
             self.feedback_timer = 90
 
-def get_state(self):
-    sprite = None
-    if self.pokemon.ready:
-        sprite = self.pokemon.poke_image if self.revealed else self.pokemon.silhouette
-    return {
-        "sprite": sprite,
-        "score": self.score,
-        "feedback_message": self.feedback_message,
-        "revealed": self.revealed,
-        "is_loading": self.pokemon.is_loading,
-        "poke_name": self.pokemon.poke_name,
-        "input_text": self.input.current_text
-        }
+    def get_state(self):
+        sprite = None
+        if self.pokemon.ready:
+            sprite = self.pokemon.poke_image if self.revealed else self.pokemon.silhouette
+        return {
+            "sprite": sprite,
+            "score": self.score,
+            "feedback_message": self.feedback_message,
+            "revealed": self.revealed,
+            "is_loading": self.pokemon.is_loading,
+            "poke_name": self.pokemon.poke_name,
+            "input_text": self.input.current_text
+            }
