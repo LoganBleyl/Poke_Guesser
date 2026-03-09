@@ -29,6 +29,10 @@ class GameManager:
                 self.pokemon.load_pokemon()
             return
         else:
+            if event.key == pygame.K_SPACE:
+                self.revealed = True
+                self.feedback_message = f"The correct answer was: {self.pokemon.poke_name.capitalize()}"
+                return
             handled_event = self.input.handle_event(event)
             if handled_event is not None:
                 self._check_guess(handled_event)
