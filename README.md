@@ -44,7 +44,7 @@ Head to the [Releases](https://github.com/LoganBleyl/Poke_Guesser/releases/lates
 
 | Platform | File |
 |----------|------|
-| 🐧 Linux | `pokeguesser` |
+| 🐧 Linux | `main` |
 | 🪟 Windows | `pokeguesser.exe` |
 | 🍎 Mac | `pokeguesser` |
 
