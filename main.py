@@ -1,3 +1,6 @@
+import os
+os.environ["FLEXIBLAS_NOSEARCH"] = "1"
+
 import pygame
 from game.game_manager import GameManager
 from game.ui import UI
