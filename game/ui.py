@@ -29,7 +29,7 @@ class UI:
             self.screen.blit(text, rect)
         
         #skip and reveal instructions
-        text = self.font_small.render("Press SPACE to reveal, ENTER to skip", True, (255, 255, 255))
+        text = self.font_small.render("Press SPACE to reveal, ENTER to submit", True, (255, 255, 255))
         rect = text.get_rect(centerx=400, top=550)
         self.screen.blit(text, rect)
         #loading the pokemon sprite
